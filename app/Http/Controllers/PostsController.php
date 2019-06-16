@@ -40,6 +40,7 @@ class PostsController extends Controller
             'featured' => 'required|image',
             'content' => 'required'
         ]);
+        dd($request);
     }
 
     /**
