@@ -2,14 +2,17 @@
 
 @section('content')
     <div class="card ">
-        <div class=".card-bodyv">
-            <table class="table table-hover">
-                <thead>
-                    <th>Category Name</th>
-                    <th>Editing</th>
-                    <th>Deleting</th>
-                </thead>
-                <tbody>
+        <div class="container">
+            Categories
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <th>Category Name</th>
+                <th>Editing</th>
+                <th>Deleting</th>
+            </thead>
+            <tbody>
+                @if($categories->count() > 0)        
                     @foreach($categories as $category)
                         <tr>
                             <td>
@@ -27,8 +30,16 @@
                             </td>
                         </tr>
                     @endforeach
-                </tbody>
-            </table>
-        </div>
+                @else
+                    <tr>
+                        <th colspan="5" class="text-center">
+                        <h3  style="color:red;">
+                            There is no categories to show
+                        </h3>
+                        </th>
+                    </tr>
+                @endif
+            </tbody>
+        </table>
     </div>
 @stop
