@@ -11,13 +11,15 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
 </head>
 <body>
     <div id="app">
@@ -71,6 +73,17 @@
                 </div>
             </div>
         </nav>
+        @if(Session::has('success'))
+            <div class="alert alert-success" role="alert">
+                {{Session::get('success')}}
+            </div>
+        @endif
+
+        @if(Session::has('danger'))
+            <div class="alert alert-danger" role="alert">
+                {{Session::get('danger')}}
+            </div>
+        @endif
         <div class="container">
             <div class="row pt-4">
                 @if(Auth::check())
@@ -79,6 +92,16 @@
                             <li class="list-group-item">
                                 <a href="{{route('home')}}">
                                     Home
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{route('posts')}}">
+                                    Posts
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{route('posts.trashed')}}">
+                                    Trash
                                 </a>
                             </li>
                             <li class="list-group-item">
@@ -99,11 +122,14 @@
                         </ul>
                     </div>
                 @endif
+                
                 <div class="col-lg-8">
                     @yield('content')
                 </div>
             </div>
         </div>
     </div>
+    
+
 </body>
 </html>

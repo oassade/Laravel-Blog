@@ -7,19 +7,19 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h1>
-                Create a new post
+                Edit post: {{$post->title}}
             </h1>
         </div>
         <div class="panel-body">
-            <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('post.update', ['id' => $post->id])}}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="title" class="form-control" value="{{$post->title}}">
                 </div>
                 <div class="form-group">
                     <label for="featured">Featured image</label><br>
-                    <input type="file" name="featured">
+                    <input type="file" name="featured" value="{{$post->featured}}">
                 </div>
                 <div class="form-group">
                     <label for="category">Select category</label>
@@ -31,11 +31,11 @@
                 </div>
                 <div class="form-group">
                     <label for="content">Content</label>
-                    <textarea name="content" id="content" cols="5" rows="5"  class="form-control"></textarea>
+                    <textarea name="content" id="content" cols="5" rows="5"  class="form-control">value="{{$post->content}}</textarea>
                 </div>
                 <div class="text-center">
                     <button class="btn btn-success" type="submit">
-                            Store post
+                            Update post
                     </button>
                 </div>
             </form>

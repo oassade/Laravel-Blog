@@ -5,7 +5,7 @@
         <div class=".card-bodyv">
             <table class="table table-hover">
                 <thead>
-                    <th>Caategory Name</th>
+                    <th>Category Name</th>
                     <th>Editing</th>
                     <th>Deleting</th>
                 </thead>
@@ -16,13 +16,13 @@
                                 {{$category->name}}
                             </td>
                             <td>
-                                <a href="{{route('category.edit', ['id' => $category->id])}}" class="btn btn-xs btn-info">
+                            <a href="{{route('category.edit', ['id' => $category->id])}}" class="btn btn-xs btn-info">
                                     Edit
                                 </a>
                             </td>
                             <td>
                                 <a href="{{route('category.delete', ['id' => $category->id])}}" class="btn btn-xs btn-danger">
-                                        Delete
+                                    Trash
                                 </a>
                             </td>
                         </tr>
