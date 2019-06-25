@@ -4,27 +4,30 @@
     <div class="card ">
         <div class=".card-body">
         <div class="container">
-            Posts
+            Users
         </div>
             <table class="table table-hover">
                 <thead>
                     <th>Image</th>
-                    <th>Title</th>
-                    <th>Edit</th>
+                    <th>Name</th>
+                    <th>Permissions</th>
                     <th>Delete</th>
                 </thead>
                 <tbody>
-                @if($posts->count() > 0)
-                    @foreach($posts as $post)
+                @if($users->count() > 0)
+                    @foreach($users as $user)
                         <tr>
-                            <td><img src="{{$post->featured}}" alt="{{$post->title}}" style="height:50px;
-                            width:80px;" ></td>
-                            <td>{!!$post->title!!}</td>
                             <td>
-                                <a href="{{route('post.edit', ['id' => $post->id])}}" class="btn btn-info">Edit</a>
+                                <img src="{{ $user->profile->avatar}}" alt="" width="60px" height="600px" style="border-radius :50%";>
                             </td>
                             <td>
-                                <a href="{{route('post.delete', ['id' => $post->id])}}" class="btn btn-danger">Trash</a>
+                                {{ $user->name }}
+                            </td>
+                            <td>
+                                Permissions
+                            </td>
+                            <td>
+                                Delete
                             </td>
                         </tr>
                     @endforeach
@@ -32,7 +35,7 @@
                         <tr>
                             <th colspan="5" class="text-center">
                             <h3  style="color:red;">
-                                There is no posts to show
+                                There is no users to show
                             </h3>
                             </th>
                         </tr>

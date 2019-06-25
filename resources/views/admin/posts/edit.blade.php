@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+@section('head')
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+    <script>tinymce.init({selector:'textarea'});</script>
+@endsection
 @section('content')
 
     @include('admin.includes.errors')
@@ -25,13 +28,32 @@
                     <label for="category">Select category</label>
                     <select name="category_id" id="category" class="form-control">
                         @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            <option value="{{$category->id}}"
+                            @if($post->category->id == $category->id)
+                            selected
+                            @endif
+                            >{{$category->name}}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="tag">Select tags</label>
+                        @foreach($tags as $tag)
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="tags[]" value="{{ $tag->id }}"
+                                    @foreach($post->tags as $t)
+                                        @if($tag->id == $t->id)
+                                            checked
+                                        @endif
+                                    @endforeach
+                                    >{{ $tag->tag}}
+                                </label>
+                            </div>
+                        @endforeach
+                </div>
+                <div class="form-group">
                     <label for="content">Content</label>
-                    <textarea name="content" id="content" cols="5" rows="5"  class="form-control">value="{{$post->content}}</textarea>
+                    <textarea name="content" id="content" cols="5" rows="5"  class="form-control" value="{{ $post->content }}">{!! $post->content !!}</textarea>
                 </div>
                 <div class="text-center">
                     <button class="btn btn-success" type="submit">

@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/test', function () {
+    return App\Profile::find(1)->user;
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -103,6 +106,41 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::post('/category/update/{id}', [
         'uses' => 'CategoriesController@update',
         'as' => 'category.update'
+    ]);
+
+    Route::get('/tags', [
+        'uses' => 'TagsController@index',
+        'as' => 'tags'
+    ]);
+
+    Route::get('/tag/edit/{id}', [
+        'uses' => 'TagsController@edit',
+        'as' => 'tag.edit'
+    ]);
+
+    Route::get('/tag/create', [
+        'uses' => 'TagsController@create',
+        'as' => 'tag.create'
+    ]);
+
+    Route::post('/tag/update/{id}', [
+        'uses' => 'TagsController@update',
+        'as' => 'tag.update'
+    ]);
+
+    Route::get('/tag/delete/{id}', [
+        'uses' => 'TagsController@delete',
+        'as' => 'tag.delete'
+    ]);
+
+    Route::post('/tag/store', [
+        'uses' => 'TagsController@store',
+        'as' => 'tag.store'
+    ]);
+
+    Route::get('/users', [
+        'uses' => 'UsersController@index',
+        'as' => 'users'
     ]);
 
 });

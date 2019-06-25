@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Tag;
-use Session;
+use App\User;
+use App\Profile;
 
-class TagsController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class TagsController extends Controller
      */
     public function index()
     {
-        return view('admin.tags.index')->with('tags', Tag::all());
+        return view('admin.users.index')->with('users', User::all());
     }
 
     /**
@@ -25,7 +25,7 @@ class TagsController extends Controller
      */
     public function create()
     {
-        return view('admin.tags.create');
+        //
     }
 
     /**
@@ -36,14 +36,7 @@ class TagsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'tag' => 'required',
-        ]);
-        Tag::create([
-            'tag' => $request->tag
-        ]);
-        Session::flash('success', 'Tag created successfully');
-        return redirect()->back();
+        //
     }
 
     /**
@@ -65,8 +58,7 @@ class TagsController extends Controller
      */
     public function edit($id)
     {
-        $tag = Tag::find($id);
-        return view('admin.tags.edit')->with('tag', $tag);
+        //
     }
 
     /**
@@ -78,15 +70,7 @@ class TagsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'tag' => 'required'
-        ]);
-        
-        $tag = Tag::find($id);
-        $tag->tag = $request->tag;
-        $tag->save();
-        Session::flash('success', 'Tag updated successfully');
-        return redirect()->route('tags');
+        //
     }
 
     /**
@@ -95,10 +79,8 @@ class TagsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function destroy($id)
     {
-        Tag::destroy($id);
-        Session::flash('success', 'Tag deleted successfully');
-        return redirect()->back();
+        //
     }
 }

@@ -20,6 +20,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
+    @yield('head')
+
 </head>
 <body>
     <div id="app">
@@ -110,13 +112,28 @@
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="{{route('category.create')}}">
-                                    Create new category
+                                <a href="{{route('tags')}}">
+                                    Tags
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{ route('users') }}">
+                                    Users
                                 </a>
                             </li>
                             <li class="list-group-item">
                                 <a href="{{route('post.create')}}">
                                     Create new post
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{route('category.create')}}">
+                                    Create new category
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{route('tag.create')}}">
+                                    Create new tag
                                 </a>
                             </li>
                         </ul>
