@@ -18,7 +18,7 @@
                     @foreach($users as $user)
                         <tr>
                             <td>
-                                <img src="{{ $user->profile->avatar}}" alt="" width="60px" height="600px" style="border-radius :50%";>
+                                <img src="/uploads/avatars/1.png" alt="avatar" width="60px" height="60px" style="border-radius :50%";>
                             </td>
                             <td>
                                 {{ $user->name }}
