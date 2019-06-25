@@ -18,13 +18,21 @@
                     @foreach($users as $user)
                         <tr>
                             <td>
-                                <img src="/uploads/avatars/1.png" alt="avatar" width="60px" height="60px" style="border-radius :50%";>
+                                <img src="{{$user->profile->avatar}}" alt="avatar" width="60px" height="60px" style="border-radius :50%";>
                             </td>
                             <td>
                                 {{ $user->name }}
                             </td>
                             <td>
-                                Permissions
+                                @if($user->admin)
+                                    <a href="{{ route('user.not.admin', ['id' => $user->id]) }}" class="btn btn-xs btn-danger">
+                                        Remove admin permission
+                                    </a>
+                                @else
+                                    <a href="{{ route('user.admin', ['id' => $user->id]) }}" class="btn btn-xs btn-success">
+                                        Make admin
+                                    </a>
+                                @endif
                             </td>
                             <td>
                                 Delete
