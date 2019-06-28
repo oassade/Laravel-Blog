@@ -23,7 +23,7 @@
                 </div>
                 <div class="form-group text-center">
                     <button class="btn btn-success" type="submit">
-                            Add user
+                        Add user
                     </button>
                 </div>
             </form>
