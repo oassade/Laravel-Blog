@@ -43,7 +43,7 @@ class UsersController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email'
+            'email' => 'required|email' 
         ]);
         $user = User::create([
             'name' => $request->name,
@@ -54,7 +54,6 @@ class UsersController extends Controller
             'user_id' => $user->id,
             'avatar' => '/uploads/avatars/1.png'
          ]);
-
 
         Session::flash('success', 'User added successfully');
         return redirect()->route('users');

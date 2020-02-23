@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label for="name">About</label>
-                    <textarea name="about" id="about" cols="6" rows="6" class="form-control">{{ $user->profile->about}}</textarea>
+                    <textarea name="about" id="about" cols="6" rows="6" class="form-control" value="{{ $user->profile->about}}"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="name">Your Facebook</label>

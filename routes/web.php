@@ -29,7 +29,7 @@ Route::get('category/{id}', [
 Route::get('tag/{id}', [
     'uses' => 'FrontEndController@tag',
     'as' => 'tag.single'
-]);
+]); 
 
 Route::get('/results', function(){
     $posts = App\Post::where('title', 'like', '%' . request('query') . '%')->get();
